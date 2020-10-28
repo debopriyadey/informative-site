@@ -17,24 +17,27 @@ function closeNav() {
 }
 
 function scrollAppear() {
+    var mynav = document.getElementById('myNav');
     var introText = document.querySelector('.intro-text');
     var timelineText = document.querySelector('.timelinetext');
+    var navPosition = mynav.getBoundingClientRect().top;
     var introPosition = introText.getBoundingClientRect().top;
     var timelinePosition = timelineText.getBoundingClientRect().top;
     var screenPosition = window.innerHeight;
 
-    if (introPosition < screenPosition) {
+    
+    if (screenition = screenPosition) {
         introText.classList.add('intro-appear');
         document.getElementById("svg").style.fill = "black";
         document.body.style.backgroundColor = "black";
         document.body.style.color = "white";
     }
-    if (introPosition > screenPosition) {
+    /*if (introPosition > screenPosition) {
         introText.classList.remove('intro-appear');
         document.getElementById("svg").style.fill = "white";
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
-    }
+    }*/
 
     if (timelinePosition < screenPosition/2) {
         document.getElementById("svg").style.fill = "white";
@@ -52,28 +55,29 @@ google.charts.setOnLoadCallback(drawBackgroundColor);
 
 function drawBackgroundColor() {
     var data = new google.visualization.DataTable();
-    data.addColumn('number', 'X');
+    data.addColumn('date', 'Year');
     data.addColumn('number', 'Population');
 
     data.addRows([
-        [1951, 379278124],
-        [1956, 413025849],
-        [1961, 454176666],
-        [1966, 503161589],
-        [1971, 560274314],
-        [1976, 628943226],
-        [1981, 705395576],
-        [1986, 790846181],
-        [1991, 879557823],
-        [1996, 970082707],
-        [2001, 1062684631],
-        [2006, 1153207299],
-        [2011, 1239215258],
-        [2016, 1319577958],
-        [2020, 1387297452]
+        [new Date(1951, 0, 1), 379278124],
+        [new Date(1956, 0, 1), 413025849],
+        [new Date(1961, 0, 1), 454176666],
+        [new Date(1966, 0, 1), 503161589],
+        [new Date(1971, 0, 1), 560274314],
+        [new Date(1976, 0, 1), 628943226],
+        [new Date(1981, 0, 1), 705395576],
+        [new Date(1986, 0, 1), 790846181],
+        [new Date(1991, 0, 1), 879557823],
+        [new Date(1996, 0, 1), 970082707],
+        [new Date(2001, 0, 1), 1062684631],
+        [new Date(2006, 0, 1), 1153207299],
+        [new Date(2011, 0, 1), 1239215258],
+        [new Date(2016, 0, 1), 1319577958],
+        [new Date(2020, 0, 1), 1387297452]
     ]);
 
     var options = {
+        title: 'Indian Population Since 1951',
         hAxis: {
             format: ' ',
             title: 'year',
